@@ -10,7 +10,8 @@ RUN mkdir -p $services
 # Everything needs to run as the arcgis user
 USER root
 RUN chmod -R 775 /etc/pki
-RUN usermod -aG wheel arcgis
+RUN yum -y --nogpg install openssl
+RUN usermod -aG root arcgis
 USER arcgis
 
 # Copy over our scripts
